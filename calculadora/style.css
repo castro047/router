@@ -1,0 +1,182 @@
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      user-select: none; /* Evita seleção de texto nos botões */
+    }
+
+    body {
+      background: linear-gradient(145deg, #1e2a3a 0%, #0f1724 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Segoe UI', 'Poppins', 'Inter', system-ui, -apple-system, 'Roboto', sans-serif;
+      padding: 1rem;
+    }
+
+    /* Container principal com vidro e bordas suaves */
+    .calculator {
+      background: rgba(22, 28, 40, 0.85);
+      backdrop-filter: blur(2px);
+      border-radius: 3rem;
+      box-shadow: 0 25px 45px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+      padding: 1.5rem;
+      width: 100%;
+      max-width: 400px;
+      transition: all 0.2s ease;
+    }
+
+    /* Display principal */
+    .display {
+      background: #0a0f1a;
+      border-radius: 2rem;
+      padding: 1.2rem 1.5rem;
+      margin-bottom: 1.8rem;
+      box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.4), 0 1px 0 rgba(255, 255, 255, 0.05);
+      text-align: right;
+      word-wrap: break-word;
+      word-break: break-word;
+    }
+
+    .previous-operand {
+      min-height: 1.8rem;
+      font-size: 1.1rem;
+      color: #8da3c0;
+      letter-spacing: 0.5px;
+      font-weight: 400;
+      margin-bottom: 0.3rem;
+      opacity: 0.85;
+    }
+
+    .current-operand {
+      font-size: 2.8rem;
+      font-weight: 600;
+      color: #f0f3fa;
+      line-height: 1.2;
+      overflow-x: auto;
+      white-space: nowrap;
+      scrollbar-width: thin;
+    }
+
+    /* Grade de botões */
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.8rem;
+    }
+
+    /* Estilo base dos botões */
+    button {
+      background: #1e293b;
+      border: none;
+      font-size: 1.6rem;
+      font-weight: 500;
+      padding: 1rem 0;
+      border-radius: 1.8rem;
+      color: #eef2ff;
+      cursor: pointer;
+      transition: all 0.15s linear;
+      box-shadow: 0 5px 0 #0f1219;
+      font-family: inherit;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      letter-spacing: 1px;
+    }
+
+    button:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #0f1219;
+    }
+
+    /* Botões especiais */
+    .operator {
+      background: #f59e0b;
+      color: #1e1a0b;
+      box-shadow: 0 5px 0 #b45309;
+      font-weight: 700;
+      font-size: 1.8rem;
+    }
+
+    .operator:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #b45309;
+    }
+
+    .clear {
+      background: #dc2626;
+      box-shadow: 0 5px 0 #991b1b;
+      color: white;
+    }
+
+    .equal {
+      background: #10b981;
+      box-shadow: 0 5px 0 #047857;
+      color: white;
+      font-size: 2rem;
+    }
+
+    .delete {
+      background: #475569;
+      box-shadow: 0 5px 0 #1e293b;
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+
+    /* Botão zero ocupa 2 colunas */
+    .span-two {
+      grid-column: span 2;
+    }
+
+    /* Responsividade para telas pequenas */
+    @media (max-width: 460px) {
+      .calculator {
+        padding: 1rem;
+      }
+      button {
+        font-size: 1.4rem;
+        padding: 0.8rem 0;
+        border-radius: 1.5rem;
+      }
+      .current-operand {
+        font-size: 2.2rem;
+      }
+      .previous-operand {
+        font-size: 0.9rem;
+      }
+      .buttons {
+        gap: 0.6rem;
+      }
+    }
+
+    /* Efeito hover para desktop */
+    @media (hover: hover) {
+      button:hover {
+        filter: brightness(1.08);
+        transform: translateY(-1px);
+        box-shadow: 0 6px 0 #0f1219;
+      }
+      button:active {
+        transform: translateY(2px);
+        box-shadow: 0 2px 0 #0f1219;
+      }
+      .operator:hover {
+        background: #fbbf24;
+      }
+      .equal:hover {
+        background: #34d399;
+      }
+      .clear:hover {
+        background: #ef4444;
+      }
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.7rem;
+      color: #5b6e8c;
+      margin-top: 1.5rem;
+      letter-spacing: 0.3px;
+    }
