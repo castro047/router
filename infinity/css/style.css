@@ -22,7 +22,14 @@ max-width:100%;
 display:block;
 }
 
-/* container padrão */
+/* REMOVE TODOS SUBLINHADOS */
+a,
+a:hover,
+a:focus,
+a:visited{
+text-decoration:none !important;
+}
+
 .container{
 max-width:1300px;
 margin:0 auto;
@@ -30,26 +37,20 @@ padding:0 40px;
 }
 
 
-/* ========== NAVBAR ========== */
+/*================ NAVBAR ================*/
 
 .navbar{
 position:absolute;
 top:0;
 left:0;
 width:100%;
-z-index:200;
+z-index:999;
 padding:24px 0;
 }
 
 .nav-content{
 display:flex;
 justify-content:space-between;
-align-items:center;
-flex-wrap:wrap;
-}
-
-.logo{
-display:flex;
 align-items:center;
 }
 
@@ -66,10 +67,10 @@ list-style:none;
 
 .menu li a{
 color:#fff;
-text-decoration:none;
 font-size:15px;
 font-weight:500;
-transition:.2s;
+text-decoration:none !important;
+transition:.3s;
 }
 
 .menu li a:hover{
@@ -77,8 +78,38 @@ color:#dbb05c;
 }
 
 
+/* botão hamburguer */
+.menu-toggle{
+display:none;
+flex-direction:column;
+gap:6px;
+cursor:pointer;
+z-index:9999;
+}
 
-/* ========== HERO ========== */
+.menu-toggle span{
+width:30px;
+height:3px;
+background:#fff;
+border-radius:20px;
+transition:.35s;
+}
+
+.menu-toggle.active span:nth-child(1){
+transform:rotate(45deg) translate(6px,6px);
+}
+
+.menu-toggle.active span:nth-child(2){
+opacity:0;
+}
+
+.menu-toggle.active span:nth-child(3){
+transform:rotate(-45deg) translate(7px,-7px);
+}
+
+
+
+/*================ HERO ================*/
 
 .hero{
 position:relative;
@@ -110,9 +141,7 @@ color:#fff;
 .hero-content h2{
 color:#dbb05c;
 font-size:1.3rem;
-font-weight:500;
 margin-bottom:16px;
-letter-spacing:1px;
 }
 
 .hero-content h1{
@@ -138,18 +167,16 @@ color:#111;
 border-radius:40px;
 cursor:pointer;
 transition:.3s;
-box-shadow:0 4px 12px rgba(0,0,0,.1);
 }
 
 .btn:hover{
 background:#c69c3e;
-transform:scale(.98);
 color:#fff;
 }
 
 
 
-/* ========== POR QUE ESCOLHER ========== */
+/*================ POR QUE ESCOLHER ================*/
 
 .why-section{
 background:#f7f7f7;
@@ -173,7 +200,6 @@ justify-content:center;
 .why-item.big h2{
 font-size:42px;
 line-height:1.2;
-font-weight:600;
 }
 
 .icon-marker{
@@ -206,13 +232,10 @@ line-height:1.5;
 
 
 
-/* ========== PROFISSIONAIS ========== */
+/*================ PROFISSIONAIS ================*/
 
 .pro-section{
 background:#0a0e12;
-min-height:95vh;
-display:flex;
-align-items:center;
 padding:100px 0;
 }
 
@@ -251,26 +274,17 @@ color:#f0f0f0;
 }
 
 .pro-image-wrapper{
-width:100%;
 border-radius:32px;
 overflow:hidden;
-box-shadow:0 25px 45px -12px rgba(0,0,0,.4);
-transition:.3s;
-}
-
-.pro-image-wrapper:hover{
-transform:scale(1.02);
 }
 
 .pro-image{
 width:100%;
-height:auto;
-object-fit:cover;
 }
 
 
 
-/* ========== SERVIÇOS ========== */
+/*================ SERVIÇOS ================*/
 
 .services-section{
 position:relative;
@@ -295,7 +309,7 @@ background:rgba(0,0,0,.7);
 position:relative;
 z-index:2;
 width:100%;
-color:white;
+color:#fff;
 }
 
 .services-content h2{
@@ -310,7 +324,7 @@ margin-bottom:36px;
 
 
 
-/* ========== FOOTER ========== */
+/*================ FOOTER ================*/
 
 .footer{
 background:#0f1217;
@@ -327,9 +341,8 @@ gap:64px;
 
 .footer-left h2{
 font-size:52px;
-line-height:1.2;
-margin-bottom:28px;
 color:#dbb05c;
+margin-bottom:28px;
 }
 
 .btn-outline{
@@ -338,7 +351,6 @@ border:2px solid #dbb05c;
 color:#dbb05c;
 padding:12px 32px;
 border-radius:40px;
-cursor:pointer;
 }
 
 .footer-right{
@@ -355,36 +367,32 @@ color:#dbb05c;
 
 .footer-info p{
 color:#b9c1c8;
-margin-bottom:6px;
 }
 
+
+/* REDES SOCIAIS */
 .social{
 display:flex;
 flex-direction:row;
-justify-content:flex-start;
-align-items:center;
 gap:16px;
 margin-top:10px;
-flex-wrap:nowrap;
 }
 
 .social a{
 display:flex;
-align-items:center;
 justify-content:center;
+align-items:center;
 width:48px;
 height:48px;
-min-width:48px;
 border-radius:50%;
 border:1px solid #2a2f36;
-text-decoration:none;
+text-decoration:none !important;
 transition:.3s;
 }
 
 .social a i{
-font-size:20px;
 color:#fff;
-line-height:1;
+font-size:20px;
 }
 
 .social a:hover{
@@ -408,8 +416,6 @@ border-radius:50%;
 display:flex;
 justify-content:center;
 align-items:center;
-font-size:24px;
-font-weight:bold;
 cursor:pointer;
 }
 
@@ -428,19 +434,12 @@ display:flex;
 align-items:center;
 gap:12px;
 z-index:1000;
-text-decoration:none;
-color:white;
-font-weight:600;
-}
-
-.whatsapp-float img{
-width:28px;
-filter:brightness(0) invert(1);
+color:#fff;
 }
 
 
 
-/* ===== TABLET ===== */
+/*========== TABLET ==========*/
 
 @media(max-width:1100px){
 
@@ -460,73 +459,75 @@ padding:50px 40px;
 
 
 
-/* ===== MOBILE ESTILO VIDEO ===== */
+/*========== MOBILE ==========*/
 
 @media(max-width:768px){
 
 .navbar{
-position:absolute;
-background:transparent;
-padding:20px 0;
-}
-
-.nav-content{
-justify-content:center;
-}
-
-.menu{
-display:none;
+padding:18px 0;
 }
 
 .logo img{
-height:60px;
+height:65px;
+}
+
+.menu-toggle{
+display:flex;
 }
 
 
-/* hero estilo vídeo */
+/* MENU MOBILE */
+.menu{
+position:fixed;
+top:0;
+right:-100%;
+width:100%;
+height:100vh;
+background:rgba(9,14,22,.88);
+backdrop-filter:blur(14px);
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+gap:42px;
+
+transition:.45s;
+}
+
+.menu.active{
+right:0;
+}
+
+.menu li a{
+font-size:34px;
+font-weight:300;
+text-decoration:none !important;
+}
 
 .hero{
 min-height:100svh;
 padding-top:120px;
-align-items:flex-start;
-}
-
-.hero-content{
-max-width:100%;
-padding-top:30px;
-text-align:left;
-}
-
-.hero-content h2{
-font-size:18px;
 }
 
 .hero-content h1{
 font-size:56px;
-line-height:1.02;
 font-weight:300;
 max-width:320px;
-margin-bottom:24px;
 }
 
 .hero-content p{
-font-size:28px;
-line-height:1.2;
+font-size:26px;
 max-width:320px;
-margin-bottom:36px;
 }
 
 .btn{
-display:block;
 width:100%;
 max-width:340px;
 padding:20px;
-font-size:28px;
+font-size:24px;
 border-radius:0;
 }
-
-
-/* sections */
 
 .why-grid,
 .pro-container,
@@ -535,15 +536,7 @@ grid-template-columns:1fr;
 }
 
 .why-item{
-padding:34px 26px;
-}
-
-.why-item.big h2{
-font-size:42px;
-}
-
-.pro-left{
-text-align:left;
+padding:35px 26px;
 }
 
 .pro-left h2{
@@ -554,10 +547,6 @@ font-size:50px;
 padding:28px;
 }
 
-.pro-image-wrapper{
-border-radius:18px;
-}
-
 .services-section{
 background-attachment:scroll;
 }
@@ -566,28 +555,26 @@ background-attachment:scroll;
 font-size:44px;
 }
 
-.services-content p{
-font-size:24px;
-}
-
 .footer-left h2{
 font-size:42px;
 }
 
 .back-top{
-right:18px;
-bottom:18px;
+right:20px;
+bottom:20px;
 }
 
 .whatsapp-float{
-left:14px;
-bottom:14px;
-transform:scale(.9);
+left:15px;
+bottom:15px;
+transform:scale(.92);
 }
 
 }
 
-/* celulares pequenos */
+
+
+/*========== CELULARES PEQUENOS ==========*/
 
 @media(max-width:480px){
 
@@ -597,7 +584,6 @@ padding:0 22px;
 
 .hero-content h1{
 font-size:46px;
-max-width:280px;
 }
 
 .hero-content p{
@@ -606,7 +592,6 @@ font-size:22px;
 
 .btn{
 font-size:22px;
-padding:18px;
 }
 
 .pro-left h2{

@@ -22,28 +22,36 @@ max-width:100%;
 display:block;
 }
 
-/* NAVBAR */
+/* remove sublinhados */
+a,
+a:hover,
+a:focus,
+a:visited{
+text-decoration:none !important;
+}
+
+
+/*================ NAVBAR ================*/
 
 .navbar{
 position:fixed;
 top:0;
+left:0;
 width:100%;
 background:#000;
-z-index:1000;
-padding:.9rem 2rem;
+z-index:999;
+padding:20px 0;
 }
 
-.nav-container{
+.container{
 max-width:1280px;
 margin:auto;
-display:flex;
-align-items:center;
-justify-content:space-between;
-position:relative;
+padding:0 40px;
 }
 
-.logo{
+.nav-content{
 display:flex;
+justify-content:space-between;
 align-items:center;
 }
 
@@ -52,34 +60,66 @@ height:90px;
 object-fit:contain;
 }
 
-/* menu */
-.nav-links{
-position:absolute;
-left:50%;
-transform:translateX(-50%);
+
+/* menu desktop */
+
+.menu{
 display:flex;
 gap:40px;
+list-style:none;
 }
 
-.nav-links a{
+.menu li a{
 color:#fff;
-text-decoration:none;
 font-size:.95rem;
 transition:.3s;
+text-decoration:none !important;
 }
 
-.nav-links a:hover{
+.menu li a:hover{
 color:#c9a646;
 }
 
 
+/* hamburguer */
 
-/* LAYOUT */
+.menu-toggle{
+display:none;
+flex-direction:column;
+gap:6px;
+cursor:pointer;
+z-index:9999;
+}
+
+.menu-toggle span{
+width:30px;
+height:3px;
+background:#fff;
+border-radius:20px;
+transition:.35s;
+}
+
+.menu-toggle.active span:nth-child(1){
+transform:rotate(45deg) translate(6px,6px);
+}
+
+.menu-toggle.active span:nth-child(2){
+opacity:0;
+}
+
+.menu-toggle.active span:nth-child(3){
+transform:rotate(-45deg) translate(7px,-7px);
+}
+
+
+
+/*================ LAYOUT =================*/
+
 .split-50{
 display:flex;
 width:100%;
 min-height:100vh;
-padding-top:100px;
+padding-top:110px;
 }
 
 .image-fifty{
@@ -100,7 +140,7 @@ justify-content:center;
 padding:2rem;
 }
 
-.image-fifty::after{
+.image-fifty:after{
 content:"";
 position:absolute;
 inset:0;
@@ -134,8 +174,8 @@ color:#c9a646;
 .paragraph{
 font-size:.95rem;
 margin-bottom:1rem;
-color:#cfcfcf;
 line-height:1.7;
+color:#cfcfcf;
 }
 
 .btn{
@@ -155,7 +195,7 @@ background:#e0b84f;
 
 
 
-/* FOOTER */
+/*================ FOOTER ================*/
 
 .footer{
 background:#000;
@@ -165,9 +205,6 @@ position:relative;
 }
 
 .footer-container{
-max-width:1200px;
-margin:auto;
-padding:0 20px;
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:64px;
@@ -175,9 +212,9 @@ gap:64px;
 
 .footer-left h2{
 font-size:52px;
+line-height:1.2;
 margin-bottom:28px;
 color:#dbb05c;
-line-height:1.2;
 }
 
 .btn-outline{
@@ -203,30 +240,27 @@ color:#dbb05c;
 
 .footer-info p{
 color:#b9c1c8;
-font-size:15px;
 margin-bottom:6px;
 }
 
 
-/* ICONES PADRÃO */
+
+/* redes sociais */
 
 .social{
-display:flex !important;
-flex-direction:row !important;
-align-items:center;
+display:flex;
 gap:16px;
-flex-wrap:nowrap;
+margin-top:10px;
 }
 
 .social a{
-display:inline-flex;
-width:48px;
-height:48px;
+display:flex;
 justify-content:center;
 align-items:center;
+width:48px;
+height:48px;
 border-radius:50%;
 border:1px solid #2a2f36;
-text-decoration:none;
 transition:.3s;
 }
 
@@ -246,7 +280,8 @@ color:#111;
 }
 
 
-/* topo */
+/* voltar topo */
+
 .back-top{
 position:absolute;
 right:50px;
@@ -264,7 +299,7 @@ cursor:pointer;
 
 
 
-/* ===== TABLET ===== */
+/*============= TABLET =============*/
 
 @media(max-width:1000px){
 
@@ -280,36 +315,67 @@ flex-direction:column;
 min-height:55vh;
 }
 
-.nav-container{
-flex-direction:column;
-gap:10px;
-}
-
-.nav-links{
-position:static;
-transform:none;
-margin-top:10px;
-}
-
 }
 
 
 
-/* ===== MOBILE PADRÃO DO SITE ===== */
+/*============= MOBILE =============*/
 
 @media(max-width:768px){
+
+.navbar{
+padding:18px 0;
+}
+
+.container{
+padding:0 24px;
+}
 
 .logo img{
 height:70px;
 }
 
-.navbar{
-padding:16px 20px;
+.menu-toggle{
+display:flex;
 }
 
-.nav-links{
-display:none;
+
+/* menu overlay transparente */
+.menu{
+position:fixed;
+top:0;
+right:-100%;
+width:100%;
+height:100vh;
+
+background:rgba(10,15,25,.90);
+backdrop-filter:blur(14px);
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+gap:40px;
+
+transition:.4s ease;
+z-index:999;
 }
+
+.menu.active{
+right:0;
+}
+
+.menu li a{
+font-size:32px;
+font-weight:300;
+letter-spacing:1px;
+color:#fff;
+}
+
+.menu li a:hover{
+color:#dbb05c;
+}
+
 
 .split-50{
 flex-direction:column;
@@ -350,6 +416,9 @@ bottom:20px;
 
 }
 
+
+
+/*============= SMALL =============*/
 
 @media(max-width:480px){
 

@@ -22,7 +22,23 @@ display:block;
 max-width:100%;
 }
 
-/* ---------------- NAVBAR ---------------- */
+/* remove sublinhados */
+a,
+a:hover,
+a:focus,
+a:visited{
+text-decoration:none !important;
+}
+
+.container{
+max-width:1280px;
+margin:auto;
+padding:0 40px;
+}
+
+
+
+/*================ NAVBAR ================*/
 
 .navbar{
 position:fixed;
@@ -31,20 +47,12 @@ left:0;
 width:100%;
 background:#000;
 z-index:999;
-padding:18px 32px;
+padding:20px 0;
 }
 
-.nav-container{
-max-width:1280px;
-margin:auto;
+.nav-content{
 display:flex;
-align-items:center;
 justify-content:space-between;
-position:relative;
-}
-
-.logo{
-display:flex;
 align-items:center;
 }
 
@@ -53,28 +61,59 @@ height:90px;
 object-fit:contain;
 }
 
-.nav-links{
-position:absolute;
-left:50%;
-transform:translateX(-50%);
+
+/* menu desktop */
+
+.menu{
 display:flex;
 gap:42px;
+list-style:none;
 }
 
-.nav-links a{
+.menu li a{
 color:#fff;
-text-decoration:none;
 font-size:15px;
 transition:.3s;
 }
 
-.nav-links a:hover{
+.menu li a:hover{
 color:#dbb05c;
 }
 
 
+/* hamburguer */
 
-/* ---------------- SERVIÇOS ---------------- */
+.menu-toggle{
+display:none;
+flex-direction:column;
+gap:6px;
+cursor:pointer;
+z-index:9999;
+}
+
+.menu-toggle span{
+width:30px;
+height:3px;
+background:#fff;
+border-radius:20px;
+transition:.35s;
+}
+
+.menu-toggle.active span:nth-child(1){
+transform:rotate(45deg) translate(6px,6px);
+}
+
+.menu-toggle.active span:nth-child(2){
+opacity:0;
+}
+
+.menu-toggle.active span:nth-child(3){
+transform:rotate(-45deg) translate(7px,-7px);
+}
+
+
+
+/*================ SERVIÇOS =================*/
 
 .servicos{
 padding:150px 5% 80px;
@@ -99,8 +138,8 @@ background:#000;
 border:1px solid #222;
 padding:22px;
 text-align:left;
-transition:.3s;
 border-radius:10px;
+transition:.3s;
 }
 
 .card:hover{
@@ -139,7 +178,9 @@ inset:0;
 background:rgba(0,0,0,.35);
 }
 
-/* imagens originais */
+
+/* imagens */
+
 .img1{background-image:url('https://images.unsplash.com/photo-1556740749-887f6717d7e4?w=400&h=300&fit=crop');}
 .img2{background-image:url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=400&h=300&fit=crop');}
 .img3{background-image:url('https://images.unsplash.com/photo-1554224154-26032ffc0d07?w=400&h=300&fit=crop');}
@@ -161,7 +202,7 @@ background:rgba(0,0,0,.35);
 
 
 
-/* ---------------- FOOTER ---------------- */
+/*================ FOOTER =================*/
 
 .footer{
 background:#000;
@@ -215,43 +256,42 @@ font-size:20px;
 .footer-info p{
 color:#c8c8c8;
 font-size:15px;
-margin-bottom:5px;
 }
 
 
-/* ÍCONES CORRETOS */
+/* redes sociais */
+
 .social{
 display:flex;
-flex-direction:row;
-gap:14px;
-flex-wrap:nowrap;
+gap:16px;
 }
 
 .social a{
-width:44px;
-height:44px;
-background:#e7e7e7;
-border-radius:10px;
+width:48px;
+height:48px;
 display:flex;
-align-items:center;
 justify-content:center;
-text-decoration:none;
+align-items:center;
+border-radius:50%;
+border:1px solid #2a2f36;
 transition:.3s;
 }
 
 .social i{
-font-size:18px;
-color:#111;
+font-size:20px;
+color:#fff;
 }
 
 .social a:hover{
 background:#dbb05c;
+border-color:#dbb05c;
 transform:translateY(-3px);
 }
 
 .social a:hover i{
-color:#fff;
+color:#111;
 }
+
 
 
 /* voltar topo */
@@ -274,7 +314,7 @@ cursor:pointer;
 
 
 
-/* ---------- TABLET ---------- */
+/*============= TABLET =============*/
 
 @media(max-width:1000px){
 
@@ -291,23 +331,58 @@ gap:50px;
 
 
 
-/* ---------- MOBILE ---------- */
+/*============= MOBILE =============*/
 
 @media(max-width:768px){
 
-.nav-container{
-flex-direction:column;
-gap:12px;
-}
-
-.nav-links{
-position:static;
-transform:none;
+.container{
+padding:0 24px;
 }
 
 .logo img{
 height:70px;
 }
+
+.menu-toggle{
+display:flex;
+}
+
+
+/* overlay mobile */
+.menu{
+position:fixed;
+top:0;
+right:-100%;
+width:100%;
+height:100vh;
+
+background:rgba(10,15,25,.90);
+backdrop-filter:blur(14px);
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+gap:40px;
+
+transition:.4s ease;
+z-index:999;
+}
+
+.menu.active{
+right:0;
+}
+
+.menu li a{
+font-size:32px;
+font-weight:300;
+letter-spacing:1px;
+}
+
+.menu li a:hover{
+color:#dbb05c;
+}
+
 
 .servicos{
 padding-top:170px;
@@ -344,10 +419,6 @@ bottom:18px;
 
 
 @media(max-width:480px){
-
-.nav-links{
-display:none;
-}
 
 .servicos{
 padding-top:135px;

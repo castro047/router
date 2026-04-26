@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <link rel="icon" type="image/png" href="img/logonav.png">
+
+<link rel="icon" type="image/png" href="img/logonav.png">
 
 <title>Evolux | Serviços</title>
 
@@ -21,24 +22,31 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
 <!-- NAVBAR -->
 
-<nav class="navbar">
-
-<div class="nav-container">
+<header class="navbar">
+<div class="container nav-content">
 
 <div class="logo">
 <img src="img/logonav.png" alt="Evolux Logo">
 </div>
 
-<div class="nav-links">
-<a href="index.html">Início</a>
-<a href="saibamais.html">Saiba Mais</a>
-<a href="#contato">Contato</a>
+
+<!-- botão hamburguer -->
+<div class="menu-toggle" id="menu-toggle">
+<span></span>
+<span></span>
+<span></span>
 </div>
 
+
+<ul class="menu" id="menu">
+<li><a href="index.html">Inicio</a></li>
+<li><a href="saibamais.html">Quem somos</a></li>
+<li><a href="localizacao.html">Localização</a></li>
+<li><a href="#contato">Contato</a></li>
+</ul>
+
 </div>
-
-</nav>
-
+</header>
 
 
 
@@ -179,6 +187,7 @@ Assessoria e Licitações
 <button class="btn-outline" id="servicosSaber">
 Saiba Mais
 </button>
+
 </div>
 
 
@@ -204,16 +213,15 @@ Saiba Mais
 
 <div class="social">
 
-<a href="https://wa.me/5545998384668"
-target="_blank">
+<a href="https://wa.me/5545998384668" target="_blank">
 <i class="fa-brands fa-whatsapp"></i>
 </a>
 
-<a href="#">
+<a href="https://www.instagram.com/evoluxempresarial?igsh=MXgxYnlyajBoZTdsdA==" target="_blank">
 <i class="fa-brands fa-instagram"></i>
 </a>
 
-<a href="#">
+<a href="#" target="_blank">
 <i class="fa-brands fa-facebook-f"></i>
 </a>
 
@@ -232,6 +240,7 @@ onclick="window.scrollTo({top:0,behavior:'smooth'})">
 </div>
 
 </footer>
+
 
 
 <script src="js/main.js"></script>

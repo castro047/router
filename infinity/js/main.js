@@ -41,3 +41,21 @@ document.addEventListener("DOMContentLoaded", function() {
     window.open(url, "_blank");
   });
 });
+
+
+const menuToggle = document.getElementById("menu-toggle");
+const menu = document.getElementById("menu");
+
+menuToggle.addEventListener("click", ()=> {
+menuToggle.classList.toggle("active");
+menu.classList.toggle("active");
+});
+
+
+/* fecha ao clicar em links */
+document.querySelectorAll(".menu a").forEach(link=>{
+link.addEventListener("click",()=>{
+menu.classList.remove("active");
+menuToggle.classList.remove("active");
+});
+});
