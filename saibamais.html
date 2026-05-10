@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <link rel="icon" type="image/png" href="logonav.png">
+<title>Evolux | Saiba Mais</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<link rel="stylesheet" href="css/saibamais.css">
+</head>
+
+<style>
+  *{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+-webkit-text-size-adjust:100%;
+}
+
+
+.menu a#localizacaoBtn {
+  position: relative;
+  cursor: pointer;
+}
+
+.menu a#localizacaoBtn::before {
+  margin-right: 5px;
+  font-size: 14px;
+}
+
+body{
+font-family:'Inter',sans-serif;
+background:#0b0b0b;
+min-height:100vh;
+color:#fff;
+overflow-x:hidden;
+}
+
+img{
+max-width:100%;
+display:block;
+}
+
+/* remove sublinhados */
+a,
+a:hover,
+a:focus,
+a:visited{
+text-decoration:none !important;
+}
+
+
+/*================ NAVBAR ================*/
+
+.navbar{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+background:#000;
+z-index:999;
+padding:20px 0;
+}
+
+.container{
+max-width:1280px;
+margin:auto;
+padding:0 40px;
+}
+
+.nav-content{
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo img{
+height:90px;
+object-fit:contain;
+}
+
+
+/* menu desktop */
+
+.menu{
+display:flex;
+gap:40px;
+list-style:none;
+}
+
+.menu li a{
+color:#fff;
+font-size:.95rem;
+transition:.3s;
+text-decoration:none !important;
+}
+
+.menu li a:hover{
+color:#c9a646;
+}
+
+
+/* hamburguer */
+
+.menu-toggle{
+display:none;
+flex-direction:column;
+gap:6px;
+cursor:pointer;
+z-index:9999;
+}
+
+.menu-toggle span{
+width:30px;
+height:3px;
+background:#fff;
+border-radius:20px;
+transition:.35s;
+}
+
+.menu-toggle.active span:nth-child(1){
+transform:rotate(45deg) translate(6px,6px);
+}
+
+.menu-toggle.active span:nth-child(2){
+opacity:0;
+}
+
+.menu-toggle.active span:nth-child(3){
+transform:rotate(-45deg) translate(7px,-7px);
+}
+
+
+
+/*================ LAYOUT =================*/
+
+.split-50{
+display:flex;
+width:100%;
+min-height:100vh;
+padding-top:110px;
+}
+
+.image-fifty{
+flex:1;
+position:relative;
+
+background:
+linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+url('https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1470&auto=format&fit=crop');
+
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+
+display:flex;
+align-items:center;
+justify-content:center;
+padding:2rem;
+}
+
+.image-fifty:after{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(to right,rgba(0,0,0,.6),transparent);
+}
+
+.text-fifty{
+flex:1;
+background:#111;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:2rem;
+}
+
+.text-content{
+max-width:560px;
+}
+
+h1{
+font-size:2rem;
+margin-bottom:1rem;
+color:#c9a646;
+line-height:1.3;
+}
+
+.blue-highlight{
+color:#c9a646;
+}
+
+.paragraph{
+font-size:.95rem;
+margin-bottom:1rem;
+line-height:1.7;
+color:#cfcfcf;
+}
+
+.btn{
+background:#c9a646;
+border:none;
+padding:.8rem 1.8rem;
+border-radius:40px;
+color:#000;
+cursor:pointer;
+font-weight:600;
+transition:.3s;
+}
+
+.btn:hover{
+background:#e0b84f;
+}
+
+
+
+/*================ FOOTER ================*/
+
+.footer{
+background:#000;
+color:#fff;
+padding:80px 0 48px;
+position:relative;
+}
+
+.footer-container{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:64px;
+}
+
+.footer-left h2{
+font-size:52px;
+line-height:1.2;
+margin-bottom:28px;
+color:#dbb05c;
+}
+
+.btn-outline{
+background:transparent;
+border:2px solid #dbb05c;
+color:#dbb05c;
+padding:12px 32px;
+border-radius:40px;
+cursor:pointer;
+}
+
+.footer-right{
+display:flex;
+flex-direction:column;
+gap:36px;
+}
+
+.footer-info h3{
+font-size:20px;
+margin-bottom:14px;
+color:#dbb05c;
+}
+
+.footer-info p{
+color:#b9c1c8;
+margin-bottom:6px;
+}
+
+
+
+/* redes sociais */
+
+.social{
+display:flex;
+gap:16px;
+margin-top:10px;
+}
+
+.social a{
+display:flex;
+justify-content:center;
+align-items:center;
+width:48px;
+height:48px;
+border-radius:50%;
+border:1px solid #2a2f36;
+transition:.3s;
+}
+
+.social i{
+font-size:20px;
+color:#fff;
+}
+
+.social a:hover{
+background:#dbb05c;
+border-color:#dbb05c;
+transform:translateY(-3px);
+}
+
+.social a:hover i{
+color:#111;
+}
+
+
+/* voltar topo */
+
+.back-top{
+position:absolute;
+right:50px;
+bottom:50px;
+background:#dbb05c;
+width:46px;
+height:46px;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:24px;
+cursor:pointer;
+}
+
+
+
+/*============= TABLET =============*/
+
+@media(max-width:1000px){
+
+.footer-container{
+grid-template-columns:1fr;
+}
+
+.split-50{
+flex-direction:column;
+}
+
+.image-fifty{
+min-height:55vh;
+}
+
+}
+
+
+
+/*============= MOBILE =============*/
+
+@media(max-width:768px){
+
+.navbar{
+padding:18px 0;
+}
+
+.container{
+padding:0 24px;
+}
+
+.logo img{
+height:70px;
+}
+
+.menu-toggle{
+display:flex;
+}
+
+
+/* menu overlay transparente */
+.menu{
+position:fixed;
+top:0;
+right:-100%;
+width:100%;
+height:100vh;
+
+background:rgba(10,15,25,.90);
+backdrop-filter:blur(14px);
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+gap:40px;
+
+transition:.4s ease;
+z-index:999;
+}
+
+.menu.active{
+right:0;
+}
+
+.menu li a{
+font-size:32px;
+font-weight:300;
+letter-spacing:1px;
+color:#fff;
+}
+
+.menu li a:hover{
+color:#dbb05c;
+}
+
+
+.split-50{
+flex-direction:column;
+padding-top:90px;
+}
+
+.image-fifty{
+min-height:60vh;
+}
+
+.text-fifty{
+padding:34px 24px;
+}
+
+h1{
+font-size:42px;
+}
+
+.paragraph{
+font-size:18px;
+}
+
+.btn{
+width:100%;
+max-width:340px;
+padding:18px;
+font-size:20px;
+}
+
+.footer-left h2{
+font-size:40px;
+}
+
+.back-top{
+right:20px;
+bottom:20px;
+}
+
+}
+
+
+
+/*============= SMALL =============*/
+
+@media(max-width:480px){
+
+h1{
+font-size:34px;
+}
+
+.paragraph{
+font-size:16px;
+}
+
+.btn{
+font-size:18px;
+}
+
+}
+</style>
+
+<body>
+
+
+<!-- NAVBAR -->
+
+
+ <header class="navbar">
+<div class="container nav-content">
+
+    <div class="logo">
+        <img src="logonav.png" alt="Evolux Logo">
+    </div>
+
+    <!-- botão hamburguer -->
+    <div class="menu-toggle" id="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <ul class="menu" id="menu">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="servicos.html">Serviços</a></li>
+        <li><a href="javascript:void(0);" id="localizacaoBtn">Localização</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+
+</div>
+</header>
+
+<!-- CONTEÚDO 50/50 -->
+
+<section class="split-50">
+
+<div class="image-fifty">
+<div class="image-content"></div>
+</div>
+
+
+<div class="text-fifty">
+
+<div class="text-content">
+
+<h1>
+<span class="blue-highlight">
+Evolux | soluções Empresarial
+</span>
+<br>
+conheça nos:
+</h1>
+
+<br>
+
+<p class="paragraph">
+Somos uma renomada empresa no setor de Consultoria e Assessoria especializada em RECUPERAÇÃO DE CRÉDITO FINANCEIRO no território brasileiro...
+</p>
+
+<br>
+
+<p class="paragraph">
+Com um histórico que abrange anos de atuação, nossa empresa tem se dedicado incansavelmente...
+</p>
+
+<br>
+
+<p class="paragraph">
+Por meio da aplicação de nossa metodologia exclusiva...
+</p>
+
+<br>
+
+<p class="paragraph">
+Nossa proficiência inigualável é um testemunho...
+</p>
+
+<br>
+
+<button class="btn" id="credibilidade">
+Restaurar credibilidade
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- FOOTER -->
+
+<footer class="footer" id="contato">
+
+<div class="container footer-container">
+
+<div class="footer-left">
+<h2>
+Evolux<br>
+Assessoria e Licitações
+</h2>
+
+<button class="btn-outline" id="footerSaibaBtn">
+Saiba Mais
+</button>
+</div>
+
+
+<div class="footer-right">
+
+<div class="footer-info">
+<h3>Contato</h3>
+
+<p>(45) 99838-4668 (fone / WhatsApp)</p>
+
+<p>contato@evoluxconsultoria.com.br</p>
+</div>
+
+
+<div class="footer-info">
+<h3>Endereço</h3>
+
+<p>Rua Salgado Filho, 5033 - Canadá</p>
+
+<p>Cascavel - PR</p>
+</div>
+
+
+<div class="footer-info">
+<h3>Siga-nos</h3>
+
+<div class="social">
+
+<a href="https://wa.me/5545998384668"
+target="_blank"
+aria-label="WhatsApp">
+<i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<a href="https://www.instagram.com/evoluxempresarial?igsh=MXgxYnlyajBoZTdsdA==" target="_blank">
+<i class="fa-brands fa-instagram"></i>
+</a>
+
+<a href="#"
+target="_blank"
+aria-label="Facebook">
+<i class="fa-brands fa-facebook-f"></i>
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div
+class="back-top"
+onclick="window.scrollTo({top:0,behavior:'smooth'})">
+↑
+</div>
+
+</footer>
+
+
+<script>
+// ENDEREÇO COMPLETO DA EMPRESA
+const ENDERECO_COMPLETO = "Rua Salgado Filho, 5033, Canadá, Cascavel - PR";
+const COORDENADAS = "-24.955497, -53.456007";
+
+// FUNÇÃO PRINCIPAL DE LOCALIZAÇÃO
+function abrirLocalizacao() {
+  const enderecoEncoded = encodeURIComponent(ENDERECO_COMPLETO);
+  const coordenadasEncoded = encodeURIComponent(COORDENADAS);
+  
+  const isMobile = /iPhone|iPad|iPod|Android|Windows Phone|Mobile/i.test(navigator.userAgent);
+  
+  if (isMobile) {
+    const wazeUrl = `waze://?ll=${COORDENADAS}&navigate=yes`;
+    const mapsUrl = `googlemaps://?q=${enderecoEncoded}&center=${COORDENADAS}&zoom=15`;
+    const mapsWebUrl = `https://www.google.com/maps/dir/?api=1&destination=${enderecoEncoded}`;
+    
+    window.location.href = wazeUrl;
+    
+    setTimeout(function() {
+      window.location.href = mapsUrl;
+      setTimeout(function() {
+        window.location.href = mapsWebUrl;
+      }, 1500);
+    }, 2000);
+  } else {
+    window.open(`https://www.google.com/maps/search/?api=1&query=${enderecoEncoded}&zoom=15`, "_blank");
+  }
+}
+
+function abrirGoogleMaps() {
+  const enderecoEncoded = encodeURIComponent(ENDERECO_COMPLETO);
+  window.open(`https://www.google.com/maps/search/?api=1&query=${enderecoEncoded}&zoom=16`, "_blank");
+}
+
+// TUDO DENTRO DO DOMContentLoaded - GARANTE QUE OS ELEMENTOS EXISTEM
+document.addEventListener("DOMContentLoaded", function() {
+  console.log("DOM carregado - Configurando menu mobile");
+  
+  // ========== MENU HAMBURGUER ==========
+  const menuToggle = document.getElementById("menu-toggle");
+  const menu = document.getElementById("menu");
+  
+  if (menuToggle && menu) {
+    console.log("Menu toggle encontrado - Configurando evento");
+    
+    // Abrir/fechar menu ao clicar no hamburguer
+    menuToggle.addEventListener("click", function(event) {
+      event.stopPropagation();
+      menuToggle.classList.toggle("active");
+      menu.classList.toggle("active");
+      console.log("Menu toggled - Active:", menu.classList.contains("active"));
+    });
+    
+    // Fechar menu ao clicar em qualquer link
+    const menuLinks = document.querySelectorAll(".menu a");
+    menuLinks.forEach(function(link) {
+      link.addEventListener("click", function() {
+        if (menu.classList.contains("active")) {
+          menu.classList.remove("active");
+          menuToggle.classList.remove("active");
+          console.log("Menu fechado após clique no link");
+        }
+      });
+    });
+    
+    // Fechar menu ao clicar fora (opcional)
+    document.addEventListener("click", function(event) {
+      if (menu.classList.contains("active")) {
+        const isClickInside = menu.contains(event.target) || menuToggle.contains(event.target);
+        if (!isClickInside) {
+          menu.classList.remove("active");
+          menuToggle.classList.remove("active");
+          console.log("Menu fechado ao clicar fora");
+        }
+      }
+    });
+  } else {
+    console.error("Menu toggle ou menu não encontrado!");
+    console.log("menu-toggle existe?", !!menuToggle);
+    console.log("menu existe?", !!menu);
+  }
+  
+  // ========== BOTÕES WHATSAPP ==========
+  const faleConoscoBtn = document.getElementById("faleConoscoBtn");
+  if (faleConoscoBtn) {
+    faleConoscoBtn.addEventListener("click", function() {
+      window.open("https://wa.me/5545998384668?text=Olá! Vim pelo site Evolux e quero mais informações!", "_blank");
+    });
+  }
+  
+  const footerSaibaBtn = document.getElementById("footerSaibaBtn");
+  if (footerSaibaBtn) {
+    footerSaibaBtn.addEventListener("click", function() {
+      window.open("https://wa.me/5545998384668?text=Olá! Vim pelo site Evolux e quero mais informações!", "_blank");
+    });
+  }
+  
+  // ========== BOTÕES DE NAVEGAÇÃO ==========
+  const saibaMaisBtn = document.getElementById("saibaMaisBtn");
+  if (saibaMaisBtn) {
+    saibaMaisBtn.addEventListener("click", function() {
+      window.location.href = "saibamais.html";
+    });
+  }
+  
+  const servicosBtn = document.getElementById("servicosBtn");
+  if (servicosBtn) {
+    servicosBtn.addEventListener("click", function() {
+      window.location.href = "servicos.html";
+    });
+  }
+  
+  // ========== LOCALIZAÇÃO ==========
+  const localizacaoBtn = document.getElementById("localizacaoBtn");
+  if (localizacaoBtn) {
+    localizacaoBtn.addEventListener("click", function(event) {
+      event.preventDefault();
+      event.stopPropagation();
+      abrirLocalizacao();
+      return false;
+    });
+  }
+  
+  // ========== ENDEREÇO CLICÁVEL NO FOOTER ==========
+  const enderecoElements = document.querySelectorAll(".footer-info p");
+  enderecoElements.forEach(function(p) {
+    if(p.textContent.includes("Rua Salgado Filho") || p.textContent.includes("Canada")) {
+      p.style.cursor = "pointer";
+      p.addEventListener("click", function() {
+        abrirGoogleMaps();
+      });
+    }
+  });
+});
+
+const credibilidadeBtn = document.getElementById("credibilidade");
+
+if (credibilidadeBtn) {
+  credibilidadeBtn.addEventListener("click", function() {
+    window.open(
+      "https://wa.me/5545998384668?text=Olá! Quero restaurar minha credibilidade com a Evolux.",
+      "_blank"
+    );
+  });
+}
+</script>
+
+</body>
+</html>

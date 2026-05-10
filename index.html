@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Evolux  |  Consultoria e Assessoria</title>
+  <link rel="icon" type="image/png" href="logonav.png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+ 
+<style>
+  *{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+ 
+html{
+scroll-behavior:smooth;
+-webkit-text-size-adjust:100%;
+}
+ 
+body{
+font-family:'Segoe UI',system-ui,-apple-system,'Inter',Roboto,sans-serif;
+background:#fff;
+color:#1a1f2c;
+line-height:1.4;
+overflow-x:hidden;
+}
+ 
+img{
+max-width:100%;
+display:block;
+}
+ 
+/* REMOVE TODOS SUBLINHADOS */
+a,
+a:hover,
+a:focus,
+a:visited{
+text-decoration:none !important;
+}
+ 
+.container{
+max-width:1300px;
+margin:0 auto;
+padding:0 40px;
+}
+ 
+ 
+/*================ NAVBAR ================*/
+ 
+.navbar{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+z-index:999;
+padding:24px 0;
+}
+ 
+.nav-content{
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+ 
+.logo img{
+height:90px;
+object-fit:contain;
+}
+ 
+.menu{
+display:flex;
+gap:38px;
+list-style:none;
+}
+ 
+.menu li a{
+color:#fff;
+font-size:15px;
+font-weight:500;
+text-decoration:none !important;
+transition:.3s;
+}
+ 
+.menu li a:hover{
+color:#dbb05c;
+}
+ 
+ 
+/* botão hamburguer */
+.menu-toggle{
+display:none;
+flex-direction:column;
+gap:6px;
+cursor:pointer;
+z-index:9999;
+}
+ 
+.menu-toggle span{
+width:30px;
+height:3px;
+background:#fff;
+border-radius:20px;
+transition:.35s;
+}
+ 
+.menu-toggle.active span:nth-child(1){
+transform:rotate(45deg) translate(6px,6px);
+}
+ 
+.menu-toggle.active span:nth-child(2){
+opacity:0;
+}
+ 
+.menu-toggle.active span:nth-child(3){
+transform:rotate(-45deg) translate(7px,-7px);
+}
+ 
+ 
+ 
+/*================ HERO ================*/
+ 
+.hero{
+position:relative;
+min-height:85vh;
+display:flex;
+align-items:center;
+background:
+linear-gradient(102deg,rgba(0,0,0,.7),rgba(0,0,0,.5)),
+url("https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2070&auto=format")
+center/cover no-repeat;
+}
+ 
+.overlay-hero{
+position:absolute;
+inset:0;
+background:rgba(0,0,0,.55);
+}
+ 
+.hero .container{
+position:relative;
+z-index:2;
+}
+ 
+.hero-content{
+max-width:720px;
+color:#fff;
+}
+ 
+.hero-content h2{
+color:#dbb05c;
+font-size:1.3rem;
+margin-bottom:16px;
+}
+ 
+.hero-content h1{
+font-size:54px;
+font-weight:800;
+line-height:1.2;
+margin-bottom:20px;
+}
+ 
+.hero-content p{
+font-size:18px;
+margin-bottom:32px;
+color:#f0f0f0;
+}
+ 
+.btn{
+background:#dbb05c;
+border:none;
+padding:14px 38px;
+font-size:16px;
+font-weight:600;
+color:#111;
+border-radius:40px;
+cursor:pointer;
+transition:.3s;
+}
+ 
+.btn:hover{
+background:#c69c3e;
+color:#fff;
+}
+ 
+ 
+ 
+/*================ POR QUE ESCOLHER ================*/
+ 
+.why-section{
+background:#f7f7f7;
+width:100%;
+}
+ 
+.why-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+min-height:560px;
+}
+ 
+.why-item{
+padding:70px 60px;
+border:1px solid #e2e2e2;
+display:flex;
+flex-direction:column;
+justify-content:center;
+}
+ 
+.why-item.big h2{
+font-size:42px;
+line-height:1.2;
+}
+ 
+.icon-marker{
+width:52px;
+height:52px;
+border:1px solid #1a2a2f;
+position:relative;
+margin-bottom:20px;
+}
+ 
+.icon-marker:after{
+content:"";
+width:22px;
+height:22px;
+background:#dbb05c;
+position:absolute;
+bottom:-6px;
+right:-6px;
+}
+ 
+.why-item h3{
+font-size:22px;
+margin:18px 0 12px;
+}
+ 
+.why-item p{
+color:#4f5a60;
+line-height:1.5;
+}
+ 
+ 
+ 
+/*================ PROFISSIONAIS ================*/
+ 
+.pro-section{
+background:#0a0e12;
+padding:100px 0;
+}
+ 
+.pro-container{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:70px;
+align-items:center;
+}
+ 
+.pro-left h2{
+font-size:68px;
+font-weight:300;
+line-height:1.1;
+color:#dbb05c;
+margin-bottom:24px;
+}
+ 
+.pro-left p{
+font-size:18px;
+max-width:450px;
+color:#e2e2e2;
+}
+ 
+.pro-right{
+background:rgba(0,0,0,.4);
+border-radius:24px;
+padding:40px;
+}
+ 
+.pro-right p{
+font-size:17px;
+line-height:1.6;
+margin-bottom:30px;
+color:#f0f0f0;
+}
+ 
+.pro-image-wrapper{
+border-radius:8px;
+overflow:hidden;
+}
+ 
+.pro-image{
+width:100%;
+}
+ 
+ 
+ 
+/*================ SERVIÇOS ================*/
+ 
+.services-section{
+position:relative;
+min-height:75vh;
+display:flex;
+align-items:center;
+text-align:center;
+background:
+url("https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format")
+center/cover no-repeat;
+background-attachment:fixed;
+}
+ 
+.services-section:before{
+content:"";
+position:absolute;
+inset:0;
+background:rgba(0,0,0,.7);
+}
+ 
+.services-content{
+position:relative;
+z-index:2;
+width:100%;
+color:#fff;
+}
+ 
+.services-content h2{
+font-size:52px;
+margin-bottom:16px;
+}
+ 
+.services-content p{
+font-size:20px;
+margin-bottom:36px;
+}
+ 
+ 
+ 
+/*================ FOOTER ================*/
+ 
+.footer{
+background:#0f1217;
+color:#fff;
+padding:80px 0 48px;
+position:relative;
+}
+ 
+.footer-container{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:64px;
+}
+ 
+.footer-left h2{
+font-size:52px;
+color:#dbb05c;
+margin-bottom:28px;
+}
+ 
+.btn-outline{
+background:transparent;
+border:2px solid #dbb05c;
+color:#dbb05c;
+padding:12px 32px;
+border-radius:40px;
+cursor:pointer;
+transition:.3s;
+}
+ 
+.btn-outline:hover{
+background:#dbb05c;
+color:#111;
+}
+ 
+/* Estilo para o link de localização */
+.menu a#localizacaoBtn {
+  position: relative;
+  cursor: pointer;
+}
+ 
+/* Estilo para o endereço clicável no footer */
+.footer-info p[style*="cursor: pointer"]:hover {
+  text-decoration: underline;
+  opacity: 0.8;
+}
+ 
+.footer-right{
+display:flex;
+flex-direction:column;
+gap:36px;
+}
+ 
+.footer-info h3{
+font-size:20px;
+margin-bottom:14px;
+color:#dbb05c;
+}
+ 
+.footer-info p{
+color:#b9c1c8;
+}
+ 
+ 
+/* REDES SOCIAIS */
+.social{
+display:flex;
+flex-direction:row;
+gap:16px;
+margin-top:10px;
+}
+ 
+.social a{
+display:flex;
+justify-content:center;
+align-items:center;
+width:48px;
+height:48px;
+border-radius:50%;
+border:1px solid #2a2f36;
+text-decoration:none !important;
+transition:.3s;
+}
+ 
+.social a i{
+color:#fff;
+font-size:20px;
+}
+ 
+.social a:hover{
+background:#dbb05c;
+border-color:#dbb05c;
+transform:translateY(-3px);
+}
+ 
+.social a:hover i{
+color:#111;
+}
+ 
+.back-top{
+position:absolute;
+right:50px;
+bottom:50px;
+background:#dbb05c;
+width:46px;
+height:46px;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+cursor:pointer;
+}
+ 
+.back-top:after{
+content:"↑";
+font-size:22px;
+font-weight:bold;
+color:#111;
+}
+ 
+ 
+/* WhatsApp */
+ 
+.whatsapp-float{
+position:fixed;
+left:30px;
+bottom:30px;
+background:#25D366;
+padding:12px 24px;
+border-radius:50px;
+display:flex;
+align-items:center;
+gap:12px;
+z-index:1000;
+color:#fff;
+}
+ 
+ 
+ 
+/*========== TABLET ==========*/
+ 
+@media(max-width:1100px){
+ 
+.container{
+padding:0 30px;
+}
+ 
+.pro-left h2{
+font-size:52px;
+}
+ 
+.why-item{
+padding:50px 40px;
+}
+ 
+}
+ 
+ 
+ 
+/*========== MOBILE ==========*/
+ 
+@media(max-width:768px){
+ 
+.navbar{
+padding:18px 0;
+}
+ 
+.logo img{
+height:65px;
+}
+ 
+.menu-toggle{
+display:flex;
+}
+ 
+ 
+/* MENU MOBILE */
+.menu{
+position:fixed;
+top:0;
+right:-100%;
+width:100%;
+height:100vh;
+background:rgba(9,14,22,.88);
+backdrop-filter:blur(14px);
+ 
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+gap:42px;
+ 
+transition:.45s;
+}
+ 
+.menu.active{
+right:0;
+}
+ 
+.menu li a{
+font-size:34px;
+font-weight:300;
+text-decoration:none !important;
+}
+ 
+.hero{
+min-height:100svh;
+padding-top:120px;
+}
+ 
+.hero-content h1{
+font-size:56px;
+font-weight:300;
+max-width:320px;
+}
+ 
+.hero-content p{
+font-size:26px;
+max-width:320px;
+}
+ 
+.btn{
+width:100%;
+max-width:340px;
+padding:20px;
+font-size:24px;
+border-radius:0;
+}
+ 
+.why-grid,
+.pro-container,
+.footer-container{
+grid-template-columns:1fr;
+}
+ 
+.why-item{
+padding:35px 26px;
+}
+ 
+.pro-left h2{
+font-size:50px;
+}
+ 
+.pro-right{
+padding:28px;
+}
+ 
+.services-section{
+background-attachment:scroll;
+}
+ 
+.services-content h2{
+font-size:44px;
+}
+ 
+.footer-left h2{
+font-size:42px;
+}
+ 
+.back-top{
+right:20px;
+bottom:20px;
+}
+ 
+.whatsapp-float{
+left:15px;
+bottom:15px;
+transform:scale(.92);
+}
+ 
+}
+ 
+ 
+ 
+/*========== CELULARES PEQUENOS ==========*/
+ 
+@media(max-width:480px){
+ 
+.container{
+padding:0 22px;
+}
+ 
+.hero-content h1{
+font-size:46px;
+}
+ 
+.hero-content p{
+font-size:22px;
+}
+ 
+.btn{
+font-size:22px;
+}
+ 
+.pro-left h2{
+font-size:40px;
+}
+ 
+.services-content h2{
+font-size:36px;
+}
+ 
+}
+</style>
+
+<body>
+ 
+<!-- NAVBAR -->
+ <header class="navbar">
+<div class="container nav-content">
+ 
+    <div class="logo">
+        <img src="logozero.png" alt="Evolux Logo">
+    </div>
+ 
+    <!-- botão hamburguer -->
+    <div class="menu-toggle" id="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+<ul class="menu" id="menu">
+  <li><a href="saibamais.html">Quem somos</a></li>
+  <li><a href="servicos.html">Serviços</a></li>
+  <!-- Link de Localização CORRIGIDO - Agora redireciona para Waze/Maps -->
+  <li><a href="#" id="localizacaoBtn">Localização</a></li>
+  <li><a href="#contato">Contato</a></li>
+</ul>
+ 
+</div>
+</header>
+ 
+<!-- HERO SECTION -->
+<section class="hero">
+  <div class="overlay-hero"></div>
+  <div class="container hero-content">
+    <h2>Consultoria e Assessoria</h2>
+    <h1>Recuperação de Crédito Financeiro</h1>
+    <p> Assessoria Empresarial e Licitações</p>
+    <button class="btn" id="faleConoscoBtn">Fale Conosco!</button>
+  </div>
+</section>
+ 
+<!-- SEÇÃO "POR QUE ESCOLHER" -->
+<section class="why-section">
+  <div class="why-grid">
+    <div class="why-item big">
+      <h2>Por que escolher a Evolux<br>Assessorias ?</h2>
+    </div>
+    <div class="why-item">
+      <div class="icon-marker"></div>
+      <h3>Solidez como lideres</h3>
+      <p>
+Com vários anos de atuação no mercado, estabelecemos uma solidez como líderes no setor de recuperação de crédito financeiro.
+      </p>
+    </div>
+    <div class="why-item">
+      <div class="icon-marker"></div>
+      <h3>Experiência e Histórico</h3>
+      <p>
+Nossa vasta experiência e histórico de sucesso são testemunhos de nossa capacidade de enfrentar desafios financeiros complexos.
+      </p>
+    </div>
+    <div class="why-item">
+      <div class="icon-marker"></div>
+      <h3>Soluções personalizadas</h3>
+      <p>
+Reconhecemos que cada situação financeira é única, adaptando nossos serviços para cada cliente.
+      </p>
+    </div>
+  </div>
+</section>
+ 
+<!-- SEÇÃO PROFISSIONAIS COM IMAGEM -->
+<section class="pro-section">
+  <div class="container pro-container">
+    <div class="pro-left">
+      <h2>Profissionais Qualificados</h2>
+      <p>Equipe especializada em soluções financeiras estrategicas e compliance.</p>
+    </div>
+    <div class="pro-right">
+      <div class="pro-image-wrapper">
+        <img class="pro-image" src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070&auto=format" alt="Equipe de especialistas financeiros">
+      </div>
+      <p style="margin-top: 24px;">
+Nossa equipe é composta por profissionais altamente treinados
+<br>e experientes,que compreendem a complexidade das questões financeiras
+e estão comprometidos em fornecer soluções eficazes para nossos clientes.</p>
+      <button class="btn" id="saibaMaisBtn">Saiba Mais</button>
+    </div>
+  </div>
+</section>
+ 
+<!-- NOSSOS SERVIÇOS -->
+<section class="services-section">
+  <div class="container services-content">
+    <h2>Nossos Serviços</h2>
+    <p>Soluções completas para crescimento financeiro e reestruturação de credito.</p>
+    <button class="btn" id="servicosBtn">Ver Serviços</button>
+  </div>
+</section>
+ 
+<!-- FOOTER -->
+<footer class="footer" id="contato">
+  <div class="container footer-container">
+    <div class="footer-left">
+      <h2>Evolux<br>Assessoria e Licitações</h2>
+      <button class="btn-outline" id="footerSaibaBtn">Saiba Mais</button>
+    </div>
+    <div class="footer-right">
+      <div class="footer-info">
+        <h3>Contato</h3>
+        <p>(45) 99838-4668 (fone / WhatsApp)</p>
+        <p>contato@evoluxconsultoria.com.br</p>
+      </div>
+      <div class="footer-info">
+        <h3>Endereço</h3>
+        <p>Rua Salgado Filho, 5033 - Canada</p>
+        <p>Cascavel - PR</p>
+      </div>
+      <div class="footer-info">
+        <h3>Siga-nos</h3>
+<div class="social">
+ 
+<a href="https://wa.me/5545998384668" target="_blank">
+<i class="fa-brands fa-whatsapp"></i>
+</a>
+ 
+<a href="https://www.instagram.com/evoluxempresarial?igsh=MXgxYnlyajBoZTdsdA==" target="_blank">
+<i class="fa-brands fa-instagram"></i>
+</a>
+ 
+<a href="#" target="_blank">
+<i class="fa-brands fa-facebook-f"></i>
+</a>
+ 
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="back-top" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+  </div>
+</footer>
+
+<script>
+// ENDEREÇO COMPLETO DA EMPRESA
+const ENDERECO_COMPLETO = "Rua Salgado Filho, 5033, Canadá, Cascavel - PR";
+const COORDENADAS = "-24.955497, -53.456007";
+
+// FUNÇÃO PRINCIPAL DE LOCALIZAÇÃO
+function abrirLocalizacao() {
+  const enderecoEncoded = encodeURIComponent(ENDERECO_COMPLETO);
+  const coordenadasEncoded = encodeURIComponent(COORDENADAS);
+  
+  const isMobile = /iPhone|iPad|iPod|Android|Windows Phone|Mobile/i.test(navigator.userAgent);
+  
+  if (isMobile) {
+    const wazeUrl = `waze://?ll=${COORDENADAS}&navigate=yes`;
+    const mapsUrl = `googlemaps://?q=${enderecoEncoded}&center=${COORDENADAS}&zoom=15`;
+    const mapsWebUrl = `https://www.google.com/maps/dir/?api=1&destination=${enderecoEncoded}`;
+    
+    window.location.href = wazeUrl;
+    
+    setTimeout(function() {
+      window.location.href = mapsUrl;
+      setTimeout(function() {
+        window.location.href = mapsWebUrl;
+      }, 1500);
+    }, 2000);
+  } else {
+    window.open(`https://www.google.com/maps/search/?api=1&query=${enderecoEncoded}&zoom=15`, "_blank");
+  }
+}
+
+function abrirGoogleMaps() {
+  const enderecoEncoded = encodeURIComponent(ENDERECO_COMPLETO);
+  window.open(`https://www.google.com/maps/search/?api=1&query=${enderecoEncoded}&zoom=16`, "_blank");
+}
+
+// TUDO DENTRO DO DOMContentLoaded - GARANTE QUE OS ELEMENTOS EXISTEM
+document.addEventListener("DOMContentLoaded", function() {
+  console.log("DOM carregado - Configurando menu mobile");
+  
+  // ========== MENU HAMBURGUER ==========
+  const menuToggle = document.getElementById("menu-toggle");
+  const menu = document.getElementById("menu");
+  
+  if (menuToggle && menu) {
+    console.log("Menu toggle encontrado - Configurando evento");
+    
+    // Abrir/fechar menu ao clicar no hamburguer
+    menuToggle.addEventListener("click", function(event) {
+      event.stopPropagation();
+      menuToggle.classList.toggle("active");
+      menu.classList.toggle("active");
+      console.log("Menu toggled - Active:", menu.classList.contains("active"));
+    });
+    
+    // Fechar menu ao clicar em qualquer link
+    const menuLinks = document.querySelectorAll(".menu a");
+    menuLinks.forEach(function(link) {
+      link.addEventListener("click", function() {
+        if (menu.classList.contains("active")) {
+          menu.classList.remove("active");
+          menuToggle.classList.remove("active");
+          console.log("Menu fechado após clique no link");
+        }
+      });
+    });
+    
+    // Fechar menu ao clicar fora (opcional)
+    document.addEventListener("click", function(event) {
+      if (menu.classList.contains("active")) {
+        const isClickInside = menu.contains(event.target) || menuToggle.contains(event.target);
+        if (!isClickInside) {
+          menu.classList.remove("active");
+          menuToggle.classList.remove("active");
+          console.log("Menu fechado ao clicar fora");
+        }
+      }
+    });
+  } else {
+    console.error("Menu toggle ou menu não encontrado!");
+    console.log("menu-toggle existe?", !!menuToggle);
+    console.log("menu existe?", !!menu);
+  }
+  
+  // ========== BOTÕES WHATSAPP ==========
+  const faleConoscoBtn = document.getElementById("faleConoscoBtn");
+  if (faleConoscoBtn) {
+    faleConoscoBtn.addEventListener("click", function() {
+      window.open("https://wa.me/5545998384668?text=Olá! Vim pelo site Evolux e quero mais informações!", "_blank");
+    });
+  }
+  
+  const footerSaibaBtn = document.getElementById("footerSaibaBtn");
+  if (footerSaibaBtn) {
+    footerSaibaBtn.addEventListener("click", function() {
+      window.open("https://wa.me/5545998384668?text=Olá! Vim pelo site Evolux e quero mais informações!", "_blank");
+    });
+  }
+  
+  // ========== BOTÕES DE NAVEGAÇÃO ==========
+  const saibaMaisBtn = document.getElementById("saibaMaisBtn");
+  if (saibaMaisBtn) {
+    saibaMaisBtn.addEventListener("click", function() {
+      window.location.href = "saibamais.html";
+    });
+  }
+  
+  const servicosBtn = document.getElementById("servicosBtn");
+  if (servicosBtn) {
+    servicosBtn.addEventListener("click", function() {
+      window.location.href = "servicos.html";
+    });
+  }
+  
+  // ========== LOCALIZAÇÃO ==========
+  const localizacaoBtn = document.getElementById("localizacaoBtn");
+  if (localizacaoBtn) {
+    localizacaoBtn.addEventListener("click", function(event) {
+      event.preventDefault();
+      event.stopPropagation();
+      abrirLocalizacao();
+      return false;
+    });
+  }
+  
+  // ========== ENDEREÇO CLICÁVEL NO FOOTER ==========
+  const enderecoElements = document.querySelectorAll(".footer-info p");
+  enderecoElements.forEach(function(p) {
+    if(p.textContent.includes("Rua Salgado Filho") || p.textContent.includes("Canada")) {
+      p.style.cursor = "pointer";
+      p.addEventListener("click", function() {
+        abrirGoogleMaps();
+      });
+    }
+  });
+});
+</script>
+
+</body>
+</html>
